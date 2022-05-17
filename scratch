@@ -1,0 +1,12 @@
+flask db migrate
+
+Creates migrations to the db
+
+flask db upgrade/downgrade
+
+runs the command in the migrations file you just created
+
+flask seed all
+
+Creating seed data in the db with the functions you created in the file
+

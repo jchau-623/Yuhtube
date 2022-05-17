@@ -21,5 +21,4 @@ class Video(db.Model):
             'description': self.description,
             'created_at': self.created_at,
             'comments': [comment.to_dict() for comment in self.comments]
-
         }
