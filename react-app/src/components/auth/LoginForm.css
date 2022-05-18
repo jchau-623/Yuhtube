@@ -57,7 +57,7 @@
     font-size: 16px;
 }
 
-.login-forgot-email {
+.login-forgot {
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #1A73E8;
@@ -107,4 +107,9 @@
     justify-content: center;
     border: none;
     cursor: pointer;
+    margin-right:5px;
+}
+
+.login-btns {
+    display:flex;
 }

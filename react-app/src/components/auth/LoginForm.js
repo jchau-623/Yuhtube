@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { login, validateEmail } from '../../store/session';
 import './LoginForm.css'
 
 const LoginForm = () => {
+  const history = useHistory()
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,12 +21,20 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    let email = 'demo@aa.io'
+    let password = 'password'
+    await dispatch(login(email, password))
+    history.push("/");
+  }
+
   const handleClickNext = async (e) => {
     e.preventDefault()
     const data = await dispatch(validateEmail(email))
-    // console.log('--------------', data)
     if (data) {
       setErrors(data)
+      // TODO FIX ERROR HANDLING
       setIsDisplayedEmailField(false)
     }
   }
@@ -76,26 +85,26 @@ const LoginForm = () => {
                   </div>
                 )}
             </div>
-            {/* <div className='auth-errs'>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div> */}
             {isDisplayedEmailField ?
               (
                 <div className='login-wrapper'>
-                  <span className='login-forgot-email'>Forgot email?</span>
+                  <span className='login-forgot'>Forgot email?</span>
                   <span className='guestmode-message'>Not your computer? Use Guest mode to sign in privately.</span>
                   <span className='login-learn-more'>Learn more</span>
                   <div className='login-next-btns'>
                     <NavLink to='/sign-up' className='signup-link'>Create account</NavLink>
-                    <button className='login-next' type='submit'>Next</button>
+                    <div className='login-btns'>
+                      <button className='login-next' type='submit'>Next</button>
+                      <button className='login-next' onClick={demoLogin}>Demo User</button>
+                    </div>
                   </div>
                 </div>
               ) : (
                 <div className='login-wrapper'>
-                  <span className='login-forgot-email'>Forgot Password?</span>
-                  <button className='login-next' type='submit'>Next</button>
+                  <span className='login-forgot'>Forgot Password?</span>
+                  <div className='login-btns'>
+                    <button className='login-next' type='submit'>Next</button>
+                  </div>
                 </div>
               )}
           </div>

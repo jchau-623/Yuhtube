@@ -70,10 +70,7 @@ export const validateEmail = (email) => async (dispatch) => {
 
   if (response.ok) {
     const email = response.json()
-    console.log(email, 'this is email')
     return email
-  } else {
-    console.log('validate email failure')
   }
 }
 

@@ -31,7 +31,6 @@ def authenticate():
 @auth_routes.route('/login/email', methods=['POST'])
 def validate_login_email():
     form = EmailForm()
-    print(form)
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
