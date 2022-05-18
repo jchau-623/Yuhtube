@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './LoginForm.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,34 +32,48 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <section className='login-container'>
+      <div className='login-border'>
+        <span className='login-logo'>YuhTube</span>
+        <div className='login-heading'>Sign in</div>
+        <div className='login-subheading'>to continue to YuhTube</div>
+        <form onSubmit={onLogin} className='login-form'>
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div className='login-wrapper'>
+          <div>
+            <input
+              className='login-input'
+              name='email'
+              type='text'
+              placeholder='Email or Phone'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <span className='login-forgot-email'>Forgot email?</span>
+          <span className='guestmode-message'>Not your computer? Use Guest mode to sign in privately.</span>
+          <span className='login-learn-more'>Learn more</span>
+          {/* <div>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+          </div> */}
+          <div className='login-next-btns'>
+            <NavLink to='/sign-up' className='signup-link'>Create account</NavLink>
+            <button className='login-next' type='submit'>Next</button>
+          </div>
+          </div>
+        </form>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    </section>
   );
 };
 
