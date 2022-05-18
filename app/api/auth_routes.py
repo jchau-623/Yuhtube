@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, session, request
+from app.forms.login_form import EmailForm, user_exists
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
@@ -26,6 +27,18 @@ def authenticate():
     if current_user.is_authenticated:
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
+
+@auth_routes.route('/login/email', methods=['POST'])
+def validate_login_email():
+    form = EmailForm()
+    print(form)
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        user = User.query.filter(User.email == form.data['email']).first()
+        return jsonify(user.email)
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 
 @auth_routes.route('/login', methods=['POST'])
@@ -63,7 +76,9 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(
-            username=form.data['username'],
+            # username=form.data['username'],
+            first_name=form.data['first_name'],
+            last_name=form.data['last_name'],
             email=form.data['email'],
             password=form.data['password']
         )

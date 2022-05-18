@@ -10,3 +10,7 @@ flask seed all
 
 Creating seed data in the db with the functions you created in the file
 
+
+
+frontend -> backend signup
+user inputs his information, and upon create submit sends the information to the React component state. Then the action handler grabs the state, parses into JSON to be read in the backend, then sent to the backend api route where the user is validated and created.
