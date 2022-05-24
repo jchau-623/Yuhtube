@@ -119,3 +119,7 @@
 .password-field {
     margin-right: 20px;
 }
+
+.error-handling-signup {
+    color:#cc4539;
+}

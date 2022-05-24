@@ -23,21 +23,26 @@ const LoginForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    let email = 'demo@aa.io'
+    let email = 'jchau623@gmail.com'
     let password = 'password'
     await dispatch(login(email, password))
     history.push("/");
   }
 
   const handleClickNext = async (e) => {
-    e.preventDefault()
-    const data = await dispatch(validateEmail(email))
-    if (data) {
-      setErrors(data)
+    e.preventDefault();
+    const data = await dispatch(validateEmail(email));
+    /* problem: even if the email is incorrect,
+    what we want: if the email is correct, move to the next field. if not, display error
+    */
+    if (data === email) { // if data is true
+      console.log(data)
       // TODO FIX ERROR HANDLING
-      setIsDisplayedEmailField(false)
+      setIsDisplayedEmailField(false);
+    } else {
+      setErrors(data);
     }
-  }
+  };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -84,6 +89,11 @@ const LoginForm = () => {
                     />
                   </div>
                 )}
+            </div>
+            <div className='error-handling-login'>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
             </div>
             {isDisplayedEmailField ?
               (

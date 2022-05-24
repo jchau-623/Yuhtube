@@ -1,0 +1,23 @@
+.nav-logo {
+    color: #ff0000;
+    font-size: 24px;
+    display:flex;
+}
+
+.nav-logo div {
+    color:#212121;
+    background-color: #ffffff;
+    opacity: 98.0%;
+    font-family: Oswald, sans-serif;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.navlink {
+    text-decoration: none;
+}
+
+.nav-items {
+    display:flex;
+    justify-content: space-between;
+}

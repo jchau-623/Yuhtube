@@ -68,9 +68,12 @@ export const validateEmail = (email) => async (dispatch) => {
     })
   })
 
+  const data = await response.json()
   if (response.ok) {
-    const email = response.json()
-    return email
+    return data
+  } else {
+    console.log(data, '--------')
+    return data.errors
   }
 }
 

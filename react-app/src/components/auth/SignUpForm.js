@@ -59,7 +59,7 @@ const SignUpForm = () => {
         <div className='form-contents'>
           <p className='signup-heading'>Create your Account</p>
           <p className='signup-subheading'>to continue to YuhTube</p>
-          <div>
+          <div className='error-handling-signup'>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}

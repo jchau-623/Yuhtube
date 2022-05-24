@@ -113,3 +113,7 @@
 .login-btns {
     display:flex;
 }
+
+.error-handling-login {
+    color:#cc4539;
+}
