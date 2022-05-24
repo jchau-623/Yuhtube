@@ -104,6 +104,7 @@
     height: 36px;
     width: 90px;
     border:none;
+    cursor: pointer;
 }
 
 .signup-btns {

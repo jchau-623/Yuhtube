@@ -1,0 +1,10 @@
+.logout-button {
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    background-color: darkgreen;
+    border: none;
+    color:white;
+}

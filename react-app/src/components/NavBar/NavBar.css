@@ -2,6 +2,7 @@
     color: #ff0000;
     font-size: 24px;
     display:flex;
+    margin-left:10px;
 }
 
 .nav-logo div {
@@ -20,4 +21,27 @@
 .nav-items {
     display:flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.hamburger-container {
+    margin:12px;
+    font-size: 20px;
+}
+
+.left-nav {
+    display:flex;
+    align-items: center;
+}
+
+.right-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.fa-video-plus {
+font-size: 22px;
+margin-right: 10px;
+align-items: center;
 }
