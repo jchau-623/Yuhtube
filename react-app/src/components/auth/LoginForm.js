@@ -36,7 +36,7 @@ const LoginForm = () => {
     what we want: if the email is correct, move to the next field. if not, display error
     */
     if (data === email) { // if data is true
-      console.log(data)
+      // console.log(data)
       // TODO FIX ERROR HANDLING
       setIsDisplayedEmailField(false);
     } else {

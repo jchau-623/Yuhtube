@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton'
 import './NavBar.css'
 import SearchBar from './SearchBar';
+import { Modal } from '../../context/Modal'
+import UploadForm from '../UploadModal/UploadForm';
+
 
 
 export default function NavBar() {
@@ -12,31 +15,44 @@ export default function NavBar() {
 
     const [filteredVideos, setFilteredVideos] = useState([])
 
-    return (
-        <nav className='nav-items'>
-            <div className='left-nav'>
-                <div className='hamburger-container'>
-                    <i class="fa-light fa-bars" />
-                </div>
-                <div>
-                    <NavLink to='/' exact={true} activeClassName='active' className='navlink'>
-                        <div className='nav-logo'>
-                            <i class="fa-brands fa-youtube" />
-                            <div>
-                                YuhTube
-                            </div>
-                        </div>
-                    </NavLink>
-                </div>
-            </div>
-            <div className='searchbar-container'>
-            <SearchBar videos={videos} setFilteredVideos={setFilteredVideos} filteredVideos={filteredVideos} />
-            </div>
-            <div className='right-nav'>
-                <i class="fa-light fa-video-plus" />
-                <LogoutButton />
-            </div>
+    const [showModal, setShowModal] = useState(false)
+    const openModal = () => setShowModal(true);
+    const closeModal = () => setShowModal(false);
 
-        </nav>
+    console.log(showModal);
+
+    return (
+        <>
+            <nav className='nav-items'>
+                <div className='left-nav'>
+                    <div className='hamburger-container'>
+                        <i className="fa-light fa-bars" />
+                    </div>
+                    <div>
+                        <NavLink to='/' exact={true} activeClassName='active' className='navlink'>
+                            <div className='nav-logo'>
+                                <i className="fa-brands fa-youtube" />
+                                <div>
+                                    YuhTube
+                                </div>
+                            </div>
+                        </NavLink>
+                    </div>
+                </div>
+                <div className='searchbar-container'>
+                <SearchBar videos={videos} setFilteredVideos={setFilteredVideos} filteredVideos={filteredVideos} />
+                </div>
+                <div className='right-nav'>
+                    <i className="fa-light fa-video-plus" onClick={openModal} />
+                    <LogoutButton />
+                </div>
+                {showModal && (
+                    <Modal onClose={closeModal}>
+                        <UploadForm closeModal={closeModal} />
+                    </Modal>
+                )}
+            </nav>
+
+        </>
     )
 }

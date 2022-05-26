@@ -31,7 +31,7 @@ export default function SearchBar({videos, filteredVideos, setFilteredVideos}) {
                     value={searchText}
                 />
                 <button className="search-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         </div>

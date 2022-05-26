@@ -72,7 +72,7 @@ export const validateEmail = (email) => async (dispatch) => {
   if (response.ok) {
     return data
   } else {
-    console.log(data, '--------')
+    // console.log(data, '--------')
     return data.errors
   }
 }
