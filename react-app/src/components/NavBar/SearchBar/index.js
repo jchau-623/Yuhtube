@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import './SearchBar.css'
 
-export default function SearchBar() {
+export default function SearchBar({videos, filteredVideos, setFilteredVideos}) {
     const [searchText, setSearchText] = useState('')
+
+
+    let inputHandler = (e) => {
+        setSearchText(e.target.value);
+        const NewVideosList = [];
+        if (e.target.value === '') {
+            setFilteredVideos(videos);
+        } else {
+            filteredVideos.forEach((video) => {
+                if (video.title.toLowerCase().includes(e.target.value.toLowerCase())) {
+                    NewVideosList.push(video)
+                }
+            })
+            setFilteredVideos(NewVideosList)
+        }
+    }
 
     return (
         <div>
@@ -11,7 +27,7 @@ export default function SearchBar() {
                     className="searchbar-input"
                     type="text"
                     placeholder="Search"
-                    // onChange={(e) => (e)}
+                    onChange={inputHandler}
                     value={searchText}
                 />
                 <button className="search-button">

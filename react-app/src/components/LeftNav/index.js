@@ -24,12 +24,14 @@ export default function LeftNav() {
 
     return (
         <div className='leftnav-container'>
+
             <NavLink to='/' exact={true} activeClassName='active' className='navlink'>
             <div className={`leftnav-home ${isHomePage ? 'highlighted' : ''}`} >
             <i class="fa-solid fa-house" />
             Home
             </div>
             </NavLink>
+
         </div>
     )
 }

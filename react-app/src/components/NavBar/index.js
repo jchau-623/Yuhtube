@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton'
 import './NavBar.css'
 import SearchBar from './SearchBar';
 
 
 export default function NavBar() {
+
+    const videos = useSelector(state => state?.videos?.list)
+
+    const [filteredVideos, setFilteredVideos] = useState([])
+
     return (
         <nav className='nav-items'>
             <div className='left-nav'>
@@ -23,7 +29,9 @@ export default function NavBar() {
                     </NavLink>
                 </div>
             </div>
-            <SearchBar />
+            <div className='searchbar-container'>
+            <SearchBar videos={videos} setFilteredVideos={setFilteredVideos} filteredVideos={filteredVideos} />
+            </div>
             <div className='right-nav'>
                 <i class="fa-light fa-video-plus" />
                 <LogoutButton />
