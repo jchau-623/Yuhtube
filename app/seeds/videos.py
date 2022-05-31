@@ -1,9 +1,17 @@
 from app.models import db, Video
+
+import datetime
+
+now = datetime.datetime.utcnow()
 def seed_videos():
 
     videos = [
     Video(
-
+        title='demo title',
+        user_id='1',
+        description='demo description',
+        created_at=now,
+        
     )
     ]
 
@@ -12,5 +20,5 @@ def seed_videos():
     db.session.commit()
 
 def undo_videos():
-    db.session.execute('TRUNCATE notebooks RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE videos RESTART IDENTITY CASCADE;')
     db.session.commit()

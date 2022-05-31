@@ -23,5 +23,5 @@ def seed_comments():
     db.session.commit()
 
 def undo_comments():
-    db.session.execute('TRUNCATE notes RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE comments RESTART IDENTITY CASCADE;')
     db.session.commit()

@@ -1,12 +1,12 @@
 import './HomePage.css'
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import LeftNav from '../LeftNav';
 // import React, {useState} from 'react';
 // import { Modal } from '../../context/Modal'
 
 export default function HomePage() {
 
-    const sessionUser = useSelector(state => state?.session?.user)
+    // const sessionUser = useSelector(state => state?.session?.user)
 
 
     return (

@@ -29,10 +29,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ProtectedRoute path='/' exact={true} >
-        <NavBar />
-      </ProtectedRoute>
+    {user && <NavBar />}
       <Switch>
+      {/* <ProtectedRoute path='/' exact={true} >
+        <NavBar />
+      </ProtectedRoute> */}
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
