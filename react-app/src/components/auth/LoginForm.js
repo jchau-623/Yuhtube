@@ -23,7 +23,7 @@ const LoginForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    let email = 'jchau623@gmail.com'
+    let email = 'demo@aa.io'
     let password = 'password'
     await dispatch(login(email, password))
     history.push("/");

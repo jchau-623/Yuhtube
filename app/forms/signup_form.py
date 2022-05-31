@@ -28,7 +28,7 @@ def repeat_password(form, field):
     repeat_password = field.data
     password = form.data['password']
 
-    if not repeat_password == password:
+    if repeat_password != password:
         raise ValidationError("Your passwords must match")
 
 def password_length(form, field):
@@ -38,8 +38,6 @@ def password_length(form, field):
 
 
 class SignUpForm(FlaskForm):
-    # username = StringField(
-    #     'username', validators=[DataRequired(), username_exists])
     first_name = StringField('first_name', validators=[DataRequired('Please enter your first name')])
     last_name = StringField('last_name', validators=[DataRequired('Please enter your last name')])
     email = StringField('email', validators=[DataRequired('Please enter an email'), user_exists, email_length, Email(message='This is not a valid email')])

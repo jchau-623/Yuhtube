@@ -14,11 +14,12 @@ class Comment(db.Model):
     video = db.relationship('Video', back_populates='comments')
 
     def to_dict(self):
+
         return {
             'id': self.id,
             'user_id': self.user_id,
             'video_id': self.video_id,
             'body': self.body,
             'created_at': self.created_at,
-            'video': self.video.to_dict()
+            # 'video': self.video.to_dict()
         }
