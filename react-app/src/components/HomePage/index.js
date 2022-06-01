@@ -16,15 +16,17 @@ export default function HomePage() {
 
     useEffect(() => {
         dispatch(getVideos())
-    }, [])
+    }, [dispatch])
 
     return (
         <div className='homepage-container'>
             <LeftNav />
-            <h1>My Home Page</h1>
-            <div className='videos'>{videos?.map((video, index) => (
-                <span>{video.title}</span>
-            ))}</div>
+            <div className='videos-container'>
+                <h1>My Home Page</h1>
+                <div className='videos'>{videos?.map((video, index) => (
+                    <video key={index} src={video.s3_url}></video>
+                ))}</div>
+            </div>
         </div>
     )
 }

@@ -17,10 +17,12 @@ export default function UploadForm({ closeModal }) {
             <div className="upload-container">
                 <div className="heading-container">
                     <h3 className="upload-heading">Upload videos</h3>
-                    <i onClick={closeModal} class="fa-solid fa-x"></i>
+                    <i onClick={closeModal} className="fa-solid fa-x"></i>
                 </div>
                 <div className="upload-body">
-                    <div className="upload-icon-container">
+                    <div className="upload-icon-container"
+                        onClick={handleSimulateClick}
+                        >
                         <i className="fa-solid fa-up-from-line"></i>
                     </div>
 

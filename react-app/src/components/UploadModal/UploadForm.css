@@ -41,6 +41,7 @@
     width: 100px;
     height: 34px;
     margin-top:15px;
+    cursor: pointer;
 }
 
 .upload-body {
@@ -80,6 +81,7 @@
     display:flex;
     justify-content: center;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 .upload-footer {
