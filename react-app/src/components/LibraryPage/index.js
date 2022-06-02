@@ -1,13 +1,13 @@
 import LeftNav from '../LeftNav';
 import React from 'react';
-import './TrendingsPage.css'
+import './LibraryPage.css'
 
-export default function TrendingPage() {
+export default function LibraryPage() {
     return (
         <div className='page-container'>
             <LeftNav />
             <div className='page-content'>
-            <h1>My Trendings Page</h1>
+            <h1>My Library Page</h1>
             </div>
         </div>
     )

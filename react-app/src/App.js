@@ -10,6 +10,12 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
 import TrendingsPage from './components/TrendingsPage';
+import SubscriptionsPage from './components/SubscriptionsPage';
+import LibraryPage from './components/LibraryPage/'
+import HistoryPage from './components/HistoryPage';
+import YourVideosPage from './components/YourVideosPage';
+import WatchLater from './components/WatchLaterPage';
+import LikedVideosPage from './components/LikedVideosPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +58,24 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/trending' exact={true} >
           <TrendingsPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/subscriptions' exact={true} >
+          <SubscriptionsPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/library' exact={true} >
+          <LibraryPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/history' exact={true} >
+          <HistoryPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/my-videos' exact={true} >
+          <YourVideosPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/watch-later' exact={true} >
+          <WatchLater />
+        </ProtectedRoute>
+        <ProtectedRoute path='/liked-videos' exact={true} >
+          <LikedVideosPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
