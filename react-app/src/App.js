@@ -16,6 +16,7 @@ import HistoryPage from './components/HistoryPage';
 import YourVideosPage from './components/YourVideosPage';
 import WatchLater from './components/WatchLaterPage';
 import LikedVideosPage from './components/LikedVideosPage';
+import LeftNav from './components/LeftNav';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,7 @@ function App() {
   return (
     <BrowserRouter>
     {user && <NavBar />}
+    {/* {user && <LeftNav />} */}
       <Switch>
       {/* <ProtectedRoute path='/' exact={true} >
         <NavBar />

@@ -5,7 +5,8 @@ import uuid
 
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
-ALLOWED_EXTENSIONS = {"mp4", "mov", "wmv"}
+ALLOWED_VIDEO_EXTENSIONS = {"mp4", "mov", "wmv"}
+ALLOWED_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 s3 = boto3.client(
     "s3",
@@ -13,9 +14,14 @@ s3 = boto3.client(
     aws_secret_access_key=os.environ.get("S3_SECRET")
 )
 
-def allowed_file(filename):
-    return "." in filename and \
-           filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+def allowed_image_file(filename):
+    return '.' in filename and \
+           filename.rsplit(".", 1)[1].lower() in ALLOWED_IMAGE_EXTENSIONS
+
+
+def allowed_video_file(filename):
+    return '.' in filename and \
+           filename.rsplit(".", 1)[1].lower() in ALLOWED_VIDEO_EXTENSIONS
 
 def get_unique_filename(filename):
     ext = filename.rsplit(".", 1)[1].lower()

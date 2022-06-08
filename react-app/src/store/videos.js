@@ -1,7 +1,7 @@
 const LOAD_VIDEOS = 'videos/LOAD_VIDEOS'
-const EDIT_VIDEOS = 'videos/EDIT_VIDEOS'
-const DELETE_VIDEOS = 'videos/DELETE_VIDEOS'
-const ADD_VIDEOS = 'videos/ADD_VIDEOS'
+const EDIT_VIDEO = 'videos/EDIT_VIDEOS'
+const DELETE_VIDEO = 'videos/DELETE_VIDEOS'
+const ADD_VIDEO = 'videos/ADD_VIDEOS'
 
 // ACTIONS
 const loadVideos = (videos) => {
@@ -11,23 +11,23 @@ const loadVideos = (videos) => {
     }
 }
 
-const addVideos = (newVideo) => {
+const addVideo = (newVideo) => {
     return {
-        type: ADD_VIDEOS,
+        type: ADD_VIDEO,
         newVideo
     }
 }
 
 const editVideo = (video) => {
     return {
-        type: EDIT_VIDEOS,
+        type: EDIT_VIDEO,
         video
     }
 }
 
 const deleteVideo = (videoId) => {
     return {
-        type: DELETE_VIDEOS,
+        type: DELETE_VIDEO,
         videoId
     }
 }
@@ -41,6 +41,13 @@ export const getVideos = () => async dispatch => {
         dispatch(loadVideos(videos.videos))
         return videos
     }
+}
+
+export const createVideo = (newVideo) => async dispatch => {
+    const res = await fetch('/api/videos/', {
+        method: 'POST',
+        
+    })
 }
 
 

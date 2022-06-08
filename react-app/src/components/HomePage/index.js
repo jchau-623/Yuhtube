@@ -24,7 +24,7 @@ export default function HomePage() {
             <div className='videos-container'>
                 <h1>My Home Page</h1>
                 <div className='videos'>{videos?.map((video, index) => (
-                    <video key={index} src={video.s3_url}></video>
+                    <video key={index} src={video.image_url}></video>
                 ))}</div>
             </div>
         </div>

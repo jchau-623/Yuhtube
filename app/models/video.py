@@ -8,7 +8,8 @@ class Video(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(2200), nullable=False)
-    s3_url = db.Column(db.String(255), nullable=False)
+    video_url = db.Column(db.String(255), nullable=False)
+    image_url = db.Column(db.String(500))
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship('User', back_populates='videos')
@@ -20,7 +21,8 @@ class Video(db.Model):
             'user_id': self.user_id,
             'title': self.title,
             'description': self.description,
-            's3_url': self.s3_url,
+            'video_url': self.video_url,
+            'image_url': self.image_url,
             'created_at': self.created_at,
             'comments': [comment.to_dict() for comment in self.comments]
         }
