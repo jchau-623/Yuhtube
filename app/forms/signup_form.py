@@ -33,8 +33,14 @@ def repeat_password(form, field):
 
 def password_length(form, field):
     password = field.data
+    special = ['!', '@', '#', '$', '%', '^', '&', '*']
+    numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
     if len(password) < 5 or len(password) > 20:
         raise ValidationError('Password must be between 5 and 20 characters')
+    elif not any(x in password for x in special):
+        raise ValidationError("Please include at least one special character")
+    elif not any(x in password for x in numbers):
+        raise ValidationError("Please include at least one number")
 
 
 class SignUpForm(FlaskForm):
