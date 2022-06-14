@@ -23,7 +23,7 @@ export default function HomePage() {
             <LeftNav />
             <div className='videos-container'>
                 <div className='videos-grid'>{videos?.map((video, index) => (
-                    <video className='videos' key={index} src={video.video_url}></video>
+                    <video className='videos' key={index} src={video.video_url}>test</video>
                 ))}</div>
             </div>
         </div>
