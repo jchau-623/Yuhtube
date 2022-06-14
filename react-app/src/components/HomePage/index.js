@@ -11,8 +11,8 @@ export default function HomePage() {
 
     const sessionUser = useSelector(state => state?.session?.user)
     const videos = useSelector(state => state?.videos.list)
-    console.log(videos)
-    console.log(sessionUser)
+    // console.log(videos)
+    // console.log(sessionUser)
 
     useEffect(() => {
         dispatch(getVideos())
@@ -23,8 +23,8 @@ export default function HomePage() {
             <LeftNav />
             <div className='videos-container'>
                 <h1>My Home Page</h1>
-                <div className='videos'>{videos?.map((video, index) => (
-                    <video key={index} src={video.image_url}></video>
+                <div className='videos-grid'>{videos?.map((video, index) => (
+                    <video className='videos' key={index} src={video.video_url}></video>
                 ))}</div>
             </div>
         </div>

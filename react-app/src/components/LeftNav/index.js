@@ -122,13 +122,13 @@ export default function LeftNav() {
                 </NavLink>
                 <NavLink to='/history' exact={true} activeClassName='active' className='navlink'>
                     <div className={`leftnav-tab ${isHistoryPage ? 'highlighted' : ''}`} >
-                    <i class="fa-solid fa-clock-rotate-left" />
+                    <i className="fa-solid fa-clock-rotate-left" />
                         History
                     </div>
                 </NavLink>
                 <NavLink to='/my-videos' exact={true} activeClassName='active' className='navlink'>
                     <div className={`leftnav-tab ${isYourVideosPage ? 'highlighted' : ''}`} >
-                    <i class="fa-solid fa-cloud-arrow-up" />
+                    <i className="fa-solid fa-cloud-arrow-up" />
                         Your videos
                     </div>
                 </NavLink>

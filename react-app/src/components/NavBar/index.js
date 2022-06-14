@@ -19,7 +19,7 @@ export default function NavBar() {
     const openModal = () => setShowModal(true);
     const closeModal = () => setShowModal(false);
 
-    console.log(showModal);
+    // console.log(showModal);
 
     return (
         <>
