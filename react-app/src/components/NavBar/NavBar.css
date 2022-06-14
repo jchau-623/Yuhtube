@@ -27,6 +27,7 @@
     align-items: center;
     margin-left: 16px;
     margin-right: 36px;
+    padding-bottom:10px;
 }
 
 .hamburger-container {
@@ -50,6 +51,10 @@ font-size: 22px;
 margin-right: 25px;
 align-items: center;
 cursor: pointer;
+}
+
+.left-nav {
+    padding-top: 5px;
 }
 
 /* border-bottom: 1px solid #d6d6d6; */

@@ -22,7 +22,6 @@ export default function HomePage() {
         <div className='homepage-container'>
             <LeftNav />
             <div className='videos-container'>
-                <h1>My Home Page</h1>
                 <div className='videos-grid'>{videos?.map((video, index) => (
                     <video className='videos' key={index} src={video.video_url}></video>
                 ))}</div>
