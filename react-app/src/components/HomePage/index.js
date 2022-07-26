@@ -25,7 +25,6 @@ export default function HomePage() {
                 <div className='videos-grid'>{videos?.map((video, index) => (
                     <video className='videos' key={index} src={video.video_url}></video>
                 ))}</div>
-            videos
             </div>
         </div>
     )
